@@ -1,0 +1,1 @@
+# saudi-riyal-symbol-skill
