@@ -1,0 +1,14 @@
+{
+  "name": "saudi-riyal-symbol-skill",
+  "owner": { "name": "Mohammed Al-Mousa", "url": "https://github.com/muhmoosa" },
+  "metadata": { "description": "Sets Saudi riyal amounts with the official ⃁ symbol per SAMA's usage guide.", "version": "1.0.0" },
+  "plugins": [
+    {
+      "name": "saudi-riyal-symbol",
+      "description": "Use whenever an output shows Saudi riyal amounts (ريال, ر.س, SAR) — PDFs, HTML, charts, Word, PowerPoint, Excel — to set the ⃁ symbol per SAMA's usage guidelines.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/saudi-riyal-symbol"]
+    }
+  ]
+}
