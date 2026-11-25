@@ -5,7 +5,7 @@
   "plugins": [
     {
       "name": "saudi-riyal-symbol",
-      "description": "Use whenever an output shows Saudi riyal amounts (ريال, ر.س, SAR) — PDFs, HTML, charts, Word, PowerPoint, Excel — to set the ⃁ symbol per SAMA's usage guidelines.",
+      "description": "Use whenever an output shows Saudi riyal amounts (ريال, ر.س, SAR) — chat replies, emails, PDFs, HTML, charts, Word, PowerPoint, Excel — to set the ⃁ symbol per SAMA's usage guidelines.",
       "source": "./",
       "strict": false,
       "skills": ["./skills/saudi-riyal-symbol"]
