@@ -1,8 +1,8 @@
 # Saudi Riyal symbol (⃁) — Agent Skill
 
-An [Agent Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that makes Claude (and other skill-aware agents) set Saudi riyal amounts with the official symbol **⃁** (U+20C1 SAUDI RIYAL SIGN), following the Saudi Central Bank (SAMA) usage guide — in HTML, PDF, charts, Word, PowerPoint and Excel.
+An [Agent Skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that makes Claude (and other skill-aware agents) set Saudi riyal amounts with the official symbol **⃁** (U+20C1 SAUDI RIYAL SIGN), following the Saudi Central Bank (SAMA) usage guide — in chat replies and email as well as HTML, PDF, charts, Word, PowerPoint and Excel.
 
-Most fonts don't have U+20C1 yet, so it usually renders as an empty box. This skill ships a 1 KB font built from SAMA's official artwork and tells the agent how to place it correctly: left of the number, no-break space, correct bidi order in Arabic text, negatives, matching digit height, one weight only.
+U+20C1 is in Unicode 17.0 and the major operating systems display it in plain text, so the agent writes the symbol directly in chat replies and email, falling back to «ر.س» only where it truly cannot be shown. For files it produces, this skill ships a 1 KB font built from SAMA's official artwork, so the symbol keeps SAMA's exact shape everywhere, and tells the agent how to place it correctly: left of the number, no-break space, correct bidi order in Arabic text, negatives, matching digit height, one weight only.
 
 ## Install
 

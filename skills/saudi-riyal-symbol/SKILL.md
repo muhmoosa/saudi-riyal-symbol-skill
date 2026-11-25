@@ -1,15 +1,15 @@
 ---
 name: "saudi-riyal-symbol"
-description: "Use whenever an output shows Saudi riyal amounts (ريال, ر.س, SAR) — PDFs, HTML, charts, Word, PowerPoint, Excel — to set the \u20C1 symbol per SAMA's usage guidelines."
+description: "Use whenever an output shows Saudi riyal amounts (ريال, ر.س, SAR) — chat replies, emails, PDFs, HTML, charts, Word, PowerPoint, Excel — to set the \u20C1 symbol per SAMA's usage guidelines."
 ---
 
 # Saudi Riyal symbol (⃁) per SAMA guidelines
 
-Any amount in Saudi riyals in a deliverable uses the official symbol, set the way the Saudi Central Bank (SAMA) guide prescribes. Apply it silently in every medium where the font can be controlled; say so in one line when a medium cannot show it.
+Any amount in Saudi riyals in a deliverable uses the official symbol, set the way the Saudi Central Bank (SAMA) guide prescribes. Apply it silently in every medium, plain text included (chat replies, email). Fall back to «ر.س» only where the symbol truly cannot be shown, and say so in one line.
 
 ## Facts to rely on
 - Approved 20 February 2025; announced by SAMA.
-- Unicode: **U+20C1 SAUDI RIYAL SIGN** (Unicode 17.0, September 2025). Most system and web fonts do not have the glyph yet, so it shows as an empty box unless a font that has it is supplied.
+- Unicode: **U+20C1 SAUDI RIYAL SIGN** (Unicode 17.0, September 2025). The major operating systems now include it in their system fonts, so the character displays in plain text (chat replies, email, ordinary documents) without supplying a font. In files you produce, still embed this skill's font: it guarantees SAMA's exact outline and the right height, and covers readers on older systems or fonts that lack the glyph.
 - Official guide: SAMA, «دليل استخدام رمز الريال السعودي», usage rules on pp. 16–17 — https://www.sama.gov.sa/ar-sa/Currency/SRS/Documents/Guidelines.pdf (sama.gov.sa often refuses automated downloads; cite it, don't depend on fetching it).
 - **Use SAMA's official artwork only** — the files in this skill's `assets/` folder. Never use third-party "riyal fonts" or redraw the symbol: their outlines and stroke weights differ from SAMA's.
 - The official symbol has **one weight**. There is no bold or light version; never synthesise one.
@@ -66,8 +66,8 @@ def sar(text, sym=' <span class="sar">⃁</span>'):
 - **When a font can't be used** (an image-only design tool, a slide template, signage): place `assets/sama-riyal-symbol.svg` (or SAMA's EPS, in print tools) as an inline graphic, scaled uniformly to the digit height, filled with the text colour, sitting on the baseline: `<svg viewBox="0 0 1124.14 1256.39" style="height:0.7em;width:auto;vertical-align:baseline;fill:currentColor">…</svg>`.
 - **Charts:** SVG text needs the font too. When rasterising with Chromium, use the unicode-range face; WeasyPrint's SVG renderer mangles Arabic, so rasterise charts with Chromium (deviceScaleFactor 4) and embed the PNG. matplotlib: register `assets/sar-symbol.otf` with `font_manager.fontManager.addfont` and list it as a fallback family.
 - **Excel (openpyxl):** number format with the symbol first, e.g. `'"⃁" #,##0'` (visual left in both directions), and set the cell font to one that has U+20C1. If the recipient's machine lacks such a font it shows a box: tell the user in one line.
-- **Word / PowerPoint:** put the symbol in its own run in the SAR font and embed the font when the tool allows. If it cannot be embedded, insert `assets/sama-riyal-symbol.png` inline at digit height instead, or keep «ريال» and say why in one line — never risk an empty box.
-- **Docs or pages where the font can't be set (Claude Docs, chat replies, email):** keep «ريال»/«ر.س»; don't emit U+20C1.
+- **Word / PowerPoint:** put the symbol in its own run in the SAR font and embed the font when the tool allows. If it cannot be embedded, insert `assets/sama-riyal-symbol.png` inline at digit height instead, or fall back to «ر.س» and say why in one line — never risk an empty box.
+- **Plain text and places where the font can't be set (chat replies, email, Claude Docs, messages):** write U+20C1 directly as text, in the same logical order and with the NBSP — `2,500 ⃁` in Arabic, `⃁ 2,500` in English; the system font displays it. Fall back to «ر.س» only when the target is known not to display it (an old system, a platform that strips or boxes the character).
 
 ## Verify before delivering
 - Render the page and look: the symbol is left of the amount, same height as the digits, not on its own line, no empty boxes.
